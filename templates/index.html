@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Speech Recog App</title>
+
+	<link rel="preconnect" href="https://fonts.gstatic.com"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap"/>
+	<link rel="stylesheet" type="text/css" href=" {{ url_for('static', filename='styles/index.css') }} " />
+</head>
+<body>
+	<div id="audioFileContainer">
+		<h3>Drop a file.</h3>
+		<form method="post" enctype="multipart/form-data">
+			<input type="file" name="file_name">
+			<br>
+			<input type="submit" value="Transcribe!" id="button">
+		</form>
+	</div>
+	<!-- jinja -->
+	{% if transcript %}
+	<div id="transcriptContainer">
+		<h3>Your Transcript is</h3>
+		<p id="speechText"> {{ transcript }} </p>
+	</div>
+	{% endif %}
+</body>
+</html>
